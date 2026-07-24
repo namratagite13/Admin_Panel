@@ -1,6 +1,7 @@
 # Admin Panel  
 #### Add lectures, assign instructor.  
-#### Live Demo :  
+#### Live Demo :  https://admin-panel-z730.onrender.com  
+#### Video Link: 
 
 #### Tech Stack  
 1 Backend : Node.js, Express.js , MongoDB, JWT, bcrypt  
