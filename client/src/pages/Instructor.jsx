@@ -41,18 +41,18 @@ const Instructor = () => {
         ) : (
             <div>
                 {lectures.map((item) => (
-            <div key={item._id} className="bg-gray-800 p-4 rounded-lg shadow-md">
-                <h2 className=" bg-black rounded-lg p-2 text-white">
-                    Name: {item.lecture?.name || 'N/A'}
-                </h2>
-                <p className=" bg-black rounded-lg p-2 text-white">
-                    Level: {item.lecture?.level || 'N/A'}
-                </p>
-                <p className=" bg-black rounded-lg p-2 text-white">
-                    Description: {item.lecture?.description || 'N/A'}
-                </p>
-            </div>
-            ))}
+                    <div key={item._id} className="bg-gray-800 p-4 rounded-lg ">
+                        <h2 className=" bg-black rounded-lg p-2 text-white">
+                            Your Lecture Name: {item.lecture?.name || 'N/A'}
+                        </h2>
+                        <p className=" bg-black rounded-lg p-2 text-white mt-2">
+                            Level: {item.lecture?.level || 'N/A'}
+                        </p>
+                        <p className=" bg-black rounded-lg p-2 text-white mt-2">
+                            Description: {item.lecture?.description || 'N/A'}
+                        </p>
+                    </div>
+                ))}
 
             </div>
             

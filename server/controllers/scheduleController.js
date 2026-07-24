@@ -72,9 +72,9 @@ const getInstructorLectures = async(req, res) =>{
 
         
 
-        const instructorId = req.user.id || req.user._id;
+        const instructorId = req.user_id || req.user?._id || req.user?.id
 
-        const allLecturesForInstructor = await Schedule.find({instructor: instructorId}).populate('lecture')
+        const allLecturesForInstructor = await Schedule.find({instructor: instructorId}).populate('lecture').populate('instructor', 'name email');
 
         return res.status(200).json({
             success: true,
