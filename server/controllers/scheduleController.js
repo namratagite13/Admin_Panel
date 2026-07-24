@@ -11,7 +11,15 @@ const scheduleLecture = async(req, res) =>{
 
         const instructorId = instructor || req.user_id
 
-        const findInstructor = await User.findById(instructorId);
+        //const findInstructor = await User.findById(instructorId);
+
+        let findInstructor;
+
+        if(instructorId.match(/^[0-9a-fA-F]{24}$/)){
+            findInstructor = await User.findById(instructorId)
+        }else{
+            findInstructor = await User.findOne({name: instructorId })
+        }
 
         if(!findInstructor){
             return res.status(404).json({
@@ -22,7 +30,7 @@ const scheduleLecture = async(req, res) =>{
 
         const existingLectureWithInstructor = await Schedule.findOne({
          
-            instructor: findInstructor,
+            instructor: findInstructor._id,
             date: date
         })
 
@@ -37,7 +45,7 @@ const scheduleLecture = async(req, res) =>{
 
         const schedule = await Schedule.create({
             lecture,   
-            instructor ,
+            instructor: findInstructor._id ,
             date
         })
 

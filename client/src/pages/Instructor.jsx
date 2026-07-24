@@ -1,25 +1,28 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import {Link} from 'react-router-dom'
+
+
+
+
 const Instructor = () => {
     const [lectures, setLectures] = useState([]);
-    const [loading, setLoading] = useState(true);
+ 
 
     const fetchLecturesForInstructor = async () => {
         try {
             const token = localStorage.getItem('token');
             const response = await axios.get('http://localhost:8080/api/schedule/my-schedule', {
                 headers: {
-            Authorization: `Bearer ${token}`
-           }
-        });
-        
+                    Authorization: `Bearer ${token}`
+            }});
+
+
             setLectures(response.data.all || []);
         }catch (error) {
             console.error('Fetch Error:', error.response?.data?.message || error.message);
-        } finally {
-        setLoading(false);
-        }
+        } 
     };
 
   useEffect(() => {

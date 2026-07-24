@@ -4,6 +4,7 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 
+import {useNavigate, Link} from 'react-router-dom'
 
 
 
@@ -103,6 +104,11 @@ const Lectures = () =>{
                         <button className='bg-white text-black p-2 rounded-lg' type='submit'>
                         submit
                        </button>
+                    </div>
+                    <div>
+                        <Link to={"/admin"}>
+                        <button className='bg-white text-black p-2 rounded-lg mt-2' >Back to scheduling</button>
+                        </Link>
                     </div>
                 </form>
             </div>

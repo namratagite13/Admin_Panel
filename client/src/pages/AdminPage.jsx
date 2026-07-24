@@ -3,7 +3,7 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 
-
+import {useNavigate, Link} from 'react-router-dom'
 
 
 
@@ -19,6 +19,8 @@ const AdminPage = () =>{
 
     const [date, setDate] = useState('')
     const [loading, setLoading] = useState(false)
+
+    const navigate = useNavigate()
 
 
     const fetchInstructor = async() =>{
@@ -81,6 +83,9 @@ const AdminPage = () =>{
             
             if(response.data.success){
                 alert('Schedule is created for lecture')
+
+               
+
             }
 
            
@@ -114,19 +119,21 @@ const AdminPage = () =>{
     
     <div className='bg-black h-screen'>
         <div className=' flex flex-col justify-center items-center h-screen'>
-         <h2 className='text-white'>Schedule Lecture</h2>
-            <form onSubmit={handleSubmit} className=' flex flex-col gap-10 '>
+         <h2 className='text-white text-3xl'>Schedule Lecture</h2>
+            <form onSubmit={handleSubmit} className=' flex flex-col gap-5 mt-10'>
                 <select className='text-white ' value={selectInstructors} onChange={(e) => setSelectedInstructors(e.target.value)}>
+                    <option>Select Instructor</option>
                     {
                         instructorsList.map((instructor) => (
-                            <option className='white p-2' key={instructor._id}>{instructor.name}</option>
+                            <option className='white p-2' key={instructor._id} value={instructor._id}>{instructor.name}</option>
                         ))
                     }
                 </select>
                 <select className='text-white' value={selectLectures} onChange={(e) => setSelectedLectures(e.target.value)}>
+                    <option>Select Lecture</option>
                     {
                         lectureList.map((lecture) => (
-                            <option key={lecture._id}>{lecture.name}</option>
+                            <option key={lecture._id} value={lecture._id}>{lecture.name}</option>
                         ))
                     }
                 </select>
@@ -134,7 +141,7 @@ const AdminPage = () =>{
                     <input 
                     className='border-1 rounded-lg p-2'
                     type='date'
-                    placeholder='Date'
+                    placeholder='date'
                     value={date} 
                     onChange={(e) => setDate(e.target.value)} />
                 </div>
@@ -142,6 +149,11 @@ const AdminPage = () =>{
                     <button className='text-black' disabled={loading}>
                     {loading ? 'scheduling..' : 'Submit'}
                     </button>
+                </div>
+                <div className='rounded-lg p-2 bg-white'>
+                    <Link to={"/lecture"}>
+                    <button className='text-black'>Go To Saved Lectures</button>
+                    </Link>
                 </div>
                 
             </form>

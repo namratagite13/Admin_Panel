@@ -2,7 +2,7 @@
 
 import {useState} from 'react'
 import axios from 'axios'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 
 
 const Register = () =>{
@@ -90,6 +90,13 @@ const Register = () =>{
                 <div className='bg-white mt-2 rounded-lg p-2'>
                     <button disabled={loading}  className="text-black " type="submit">{loading ? 'Signing in...': 'Register'}</button>
                 </div>
+                <div className='bg-white mt-2 rounded-lg p-2'>
+                    <Link to={"/login"}>
+                    <button className="text-black ">Already registered</button>
+                    </Link>
+                </div>
+                
+                
                 </form>
             </div>
            

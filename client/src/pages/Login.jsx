@@ -1,6 +1,6 @@
 import { useState} from "react"
 import axios from 'axios'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 
 
 const Login = () => {
@@ -42,12 +42,7 @@ const Login = () => {
                 }
             
             }
-            
-           
-
-           
-
-
+        
         }catch(error){
             console.log(error.response?.data?.message)
 
@@ -77,6 +72,11 @@ const Login = () => {
                 </div>
                 <div className="bg-white rounded-lg p-2 m-2">
                     <button disabled={loading} className="text-black" type="submit"> {loading ? 'logging in...' : 'Login'}</button>
+                </div>
+                <div className='bg-white mt-2 rounded-lg p-2'>
+                    <Link to={"/"}>
+                    <button className="text-black ">No Account? Register</button>
+                    </Link>
                 </div>
             </form>
         </div>
