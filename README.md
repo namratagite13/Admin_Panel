@@ -1,6 +1,7 @@
 # Admin Panel  
 #### Add lectures, assign instructor.  Login with credentials as Admin or Instructor.  
-#### Live Demo :  https://admin-panel-z730.onrender.com  
+#### Live Demo :  https://admin-panel-z730.onrender.com    
+#### Video : https://go.screenpal.com/watch/cOiZQmnUPPt  
 #### Video Link: 
 
 #### Tech Stack  
