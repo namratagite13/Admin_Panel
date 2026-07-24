@@ -16,7 +16,8 @@ const Register = () =>{
     const navigate = useNavigate()
 
 
-    const handleSubmit = async() =>{
+    const handleSubmit = async(e) =>{
+        e.preventDefault()
 
         try{
             setLoading(true)
@@ -28,9 +29,10 @@ const Register = () =>{
 
             if(response.data.success){
                 alert('User registered successfully')
+                navigate("/login")
             }
 
-            navigate("/login")
+            
 
             setName('')
             setEmail('')
