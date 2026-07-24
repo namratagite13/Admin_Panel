@@ -19,26 +19,33 @@ const Login = () => {
                 email, password
             })
 
-            const data = response.data.User;
 
-            if(data.role === 'admin'){
-                navigate('/')
-            }else{
-                navigate('/')
+            if(response.data.success){
+                const user = response.data.User ;
+                const token = response.data.token ;
+                
+                localStorage.setItem('token', token);
+                localStorage.setItem('user', JSON.stringify(user));
+
+                
+                setEmail('')
+                setPassword('')
+
+
+                if(user?.role === 'admin'){
+                    navigate('/admin')
+                }else if(user?.role === 'instructor'){
+                    navigate('/instructor')
+                }else{
+                    navigate('/login')
+                }
+            
             }
+            
+           
 
            
 
-            if(response.data.success){
-                alert('user logged in successfully.')
-            }
-
-            localStorage.setItem('token', response.data.token);
-            localStorage.setItem('user', JSON.stringify(response.data.user))
-
-            setEmail('')
-            setPassword('')
-            
 
         }catch(error){
             console.log(error.response?.data?.message)
