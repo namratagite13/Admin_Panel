@@ -2,7 +2,7 @@
 
 import {useState} from 'react'
 import axios from 'axios'
-import {useNaviagte} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 
 const Register = () =>{
