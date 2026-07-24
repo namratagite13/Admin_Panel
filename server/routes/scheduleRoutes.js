@@ -12,8 +12,6 @@ router.post('/add', authMiddleware, isAdmin, scheduleLecture)
 router.get('/all', authMiddleware, getAllLectures )
 
 
-
-
 router.get("/my-schedule", authMiddleware, getInstructorLectures)
 
 module.exports = router;

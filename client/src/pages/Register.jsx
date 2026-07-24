@@ -2,6 +2,7 @@
 
 import {useState} from 'react'
 import axios from 'axios'
+import {useNaviagte} from 'react-router-dom'
 
 
 const Register = () =>{
@@ -12,6 +13,7 @@ const Register = () =>{
     const [role, setRole] = useState('')
     const [loading, setLoading] = useState(false)
 
+    const navigate = useNavigate()
 
 
     const handleSubmit = async() =>{
@@ -27,6 +29,8 @@ const Register = () =>{
             if(response.data.success){
                 alert('User registered successfully')
             }
+
+            navigate("/login")
 
             setName('')
             setEmail('')
