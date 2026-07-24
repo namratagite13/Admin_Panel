@@ -1,5 +1,5 @@
 # Admin Panel  
-#### Add lectures, assign instructor.  
+#### Add lectures, assign instructor.  Login with credentials as Admin or Instructor.  
 #### Live Demo :  https://admin-panel-z730.onrender.com  
 #### Video Link: 
 
@@ -15,21 +15,21 @@ SECRET_ACCESS_TOKEN=your-secret-token
   
 #### API endpoints  
 Authentication  
-POST /api/auth/register  
-POST /api/auth/login  
-GET /api/auth/instructor  
-GET /api/auth/id  -> for profile
+POST /api/auth/register  -> regsiter new User  
+POST /api/auth/login  -> logs new User  
+GET /api/auth/instructor   -> get instrctors profile  
+GET /api/auth/id  -> for profile  
    
 
 #### Lecture endPoints   
-POST /api/lecture/create  
-GET /api/lecture/all  
-GET /api/lecture/:id  
+POST /api/lecture/create  -> create lecture as admin   
+GET /api/lecture/all  -> get all lectures  
+GET /api/lecture/:id  -> get lecture by id  
 
 #### Schedule endPoints    
-POST /api/schedule/post  
-GET /api/schedule/all  
-GET /api/schedule/my-schedule  
+POST /api/schedule/post -> schdeule lecture assign instructor to the lecture as admin   
+GET /api/schedule/all   -> get all scheduled lectures  
+GET /api/schedule/my-schedule  -> get schedule as instrctor  
 
 
 
